@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  showSecretPassword = false;
+  buttonClickLog = []; 
+
+  toggleSecretPassword() {
+    this.showSecretPassword = !this.showSecretPassword
+    this.buttonClickLog.push(new Date());
+  }
 }
