@@ -8,6 +8,10 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent {
   recipes: Recipe[] = [
-    new Recipe('A Test Recipe', 'THis is simply a test', ''),
+    new Recipe(
+      'A Test Recipe',
+      'THis is simply a test',
+      'https://hips.hearstapps.com/hmg-prod/images/easy-dinner-recipes-1676057761.jpeg?crop=1.00xw:1.00xh;0,0&resize=980:*'
+    ),
   ];
 }
