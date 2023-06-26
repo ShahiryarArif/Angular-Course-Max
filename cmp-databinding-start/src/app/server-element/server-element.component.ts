@@ -4,6 +4,7 @@ import {
   AfterViewChecked,
   AfterViewInit,
   Component,
+  ContentChild,
   DoCheck,
   ElementRef,
   Input,
@@ -33,6 +34,7 @@ export class ServerElementComponent
   @Input('srvElement') element: { name: string; type: string; content: string };
   @Input() name: string;
   @ViewChild('heading', { static: true }) header: ElementRef;
+  @ContentChild('contentParagraph', { static: true }) paragraph: ElementRef;
 
   constructor() {
     console.log('constructor called!');
@@ -45,8 +47,13 @@ export class ServerElementComponent
 
   ngOnInit() {
     console.log('ngOnInit called!');
-    //Empty value as content is not loaded
+    //Empty value as view is not loaded
     console.log('Text Content: ', this.header.nativeElement.textContent);
+    //Empty value as content is not loaded
+    console.log(
+      'Text Content of paragraph: ',
+      this.paragraph.nativeElement.textContent
+    );
   }
 
   ngDoCheck() {
@@ -55,6 +62,11 @@ export class ServerElementComponent
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit called!');
+    //Will show value as now the content is loaded
+    console.log(
+      'Text Content of paragraph: ',
+      this.paragraph.nativeElement.textContent
+    );
   }
 
   ngAfterContentChecked() {
@@ -63,7 +75,7 @@ export class ServerElementComponent
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit called!');
-    //Will show value as now the content is loaded
+    //Will show value as now the view is loaded
     console.log('Text Content: ', this.header.nativeElement.textContent);
   }
 
